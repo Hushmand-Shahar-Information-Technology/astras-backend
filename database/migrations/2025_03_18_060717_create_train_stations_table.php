@@ -1,5 +1,6 @@
 <?php
 
+use App\WeightType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,7 +22,8 @@ return new class extends Migration
             $table->foreignId('country_from_id')->nullable()->constrained('countries')->nullOnDelete();
             $table->foreignId('country_to_id')->nullable()->constrained('countries')->nullOnDelete();
             $table->integer('number_of_wagon');
-            $table->string('weight');
+            $table->decimal('weight', 10, 2);
+            $table->enum('weight_type', WeightType::values());
             $table->integer('number_of_bar');
             $table->date('date_of_out');
             $table->date('date_of_in');
