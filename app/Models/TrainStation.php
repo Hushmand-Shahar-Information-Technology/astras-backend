@@ -15,13 +15,13 @@ class TrainStation extends Model
     protected $table = 'train_stations';
 
     protected $fillable = [
-        'name',
-        'country_id',
         'company_id',
         'product_id',
         'product_type_id',
         'transport_type_id',
         'user_id',
+        'country_from_id',
+        'country_to_id',
         'number_of_wagon',
         'weight',
         'number_of_bar',
