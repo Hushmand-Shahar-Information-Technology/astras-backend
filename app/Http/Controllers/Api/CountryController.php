@@ -28,8 +28,8 @@ class CountryController extends Controller
     
     public function update(Request $request, $id)
     {
-        $country = $this->countryService->getCountryFromId($id);
-        $country = $this->countryService->update($request->validated(), $country);
+       
+        $country = $this->countryService->update($request->validated(), $id);
         return response()->json($country);
     }
     public function destroy($id)
