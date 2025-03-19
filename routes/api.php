@@ -19,3 +19,6 @@ Route::apiResource('countries', CountryController::class);
 Route::apiResource('transport-types', TransportTypeController::class);
 Route::apiResource('product-type', ProductTypeController::class);
 Route::apiResource('products', ProductController::class);
+Route::get('ping', function () {
+    return response()->json(['message' => 'pong']);
+});

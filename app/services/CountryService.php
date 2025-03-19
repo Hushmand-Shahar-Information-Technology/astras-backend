@@ -18,7 +18,7 @@ class CountryService
             ]
         );
     }
-    public function update(Country $country, $data)
+    public function update($data, Country $country)
     {
         $country->update(
             [

@@ -25,12 +25,18 @@ class CountryController extends Controller
     {
         return response()->json($this->countryService->getCountryFromId($id));
     }
+    
     public function update(Request $request, $id)
     {
-        return response()->json($this->countryService->update($id, $request->all()));
+        $country = $this->countryService->getCountryFromId($id);
+        $country = $this->countryService->update($request->validated(), $country);
+        return response()->json($country);
     }
     public function destroy($id)
     {
-        return response()->json($this->countryService->delete($id));
+        $country = $this->countryService->getCountryFromId($id);
+        $country->delete();
+        return response()->json("deleted successfully", 204);   
     }
+    
 }
