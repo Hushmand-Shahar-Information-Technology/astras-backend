@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CompanyController;
+use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\TrainStationController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\ProductTypeController;
@@ -17,3 +18,4 @@ Route::apiResource('companies', CompanyController::class);
 Route::apiResource('countries', CountryController::class);
 Route::apiResource('transport-types', TransportTypeController::class);
 Route::apiResource('product-type', ProductTypeController::class);
+Route::apiResource('products', ProductController::class);

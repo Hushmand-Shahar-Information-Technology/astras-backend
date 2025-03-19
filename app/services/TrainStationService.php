@@ -29,9 +29,6 @@ class TrainStationService
         );
         return $trainStation;
     }
-    public function delete(TrainStation $trainStation)
-    {
-        return $trainStation->delete();
-    }
+    
 
 }

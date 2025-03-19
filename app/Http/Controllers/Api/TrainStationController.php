@@ -37,11 +37,19 @@ class TrainStationController extends Controller
 
     public function update(Request $request, $id)
     {
+        
         $trainStation = $this->trainStationService->getTrainStationFromId($id);
+        dd($trainStation);
         $trainStation = $this->trainStationService->update($request->validated(), $trainStation);
         return response()->json($trainStation);
     }
     
+    public function destroy($id)
+    {
+        $trainStation = $this->trainStationService->getTrainStationFromId($id);
+       $trainStation->delete();
+        return response()->json(" deleted successfully", Response::HTTP_NO_CONTENT);
+    }
 
    
 }
