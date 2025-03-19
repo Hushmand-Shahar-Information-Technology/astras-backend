@@ -24,7 +24,7 @@ class TrainStationRequest extends FormRequest
             'country_to_id' => 'nullable|exists:countries,id',
             'number_of_wagon' => 'required|integer|min:1',
             'weight' => 'required|numeric|min:0',
-            'weight_type' => 'required|in:' . implode(',', WeightType::values()),
+            'weight_type' => 'required',
             'number_of_bar' => 'required|integer|min:0',
             'date_of_out' => 'required|date',
             'date_of_in' => 'required|date|after_or_equal:date_of_out',

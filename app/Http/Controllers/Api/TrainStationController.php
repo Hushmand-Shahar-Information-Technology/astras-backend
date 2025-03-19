@@ -7,6 +7,7 @@ use App\Models\TrainStation;
 use App\Services\TrainStationService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Http\Requests\TrainStationRequest;
 
 class TrainStationController extends Controller
 {
@@ -28,20 +29,19 @@ class TrainStationController extends Controller
         return response()->json($trainStation, Response::HTTP_CREATED);
     }
 
-    public function show(TrainStation $trainStation)
+    public function show($id)
     {
+        $trainStation = $this->trainStationService->getTrainStationFromId($id);
         return response()->json($trainStation);
     }
 
-    public function update(Request $request, TrainStation $trainStation)
+    public function update(Request $request, $id)
     {
-        $updatedStation = $this->trainStationService->update($trainStation, $request->all());
-        return response()->json($updatedStation);
+        $trainStation = $this->trainStationService->getTrainStationFromId($id);
+        $trainStation = $this->trainStationService->update($request->validated(), $trainStation);
+        return response()->json($trainStation);
     }
+    
 
-    public function destroy(TrainStation $trainStation)
-    {
-        $this->trainStationService->delete($trainStation);
-        return response()->json(null, Response::HTTP_NO_CONTENT);
-    }
+   
 }

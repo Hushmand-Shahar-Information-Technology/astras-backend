@@ -10,19 +10,28 @@ class TrainStationService
         return TrainStation::latest()->get();
     }
 
-    public function create(array $data)
+    public function create($data)
     {
-        return TrainStation::create($data);
+        
+        return TrainStation::create(
+          $data
+    );
+        
     }
-
-    public function update(TrainStation $trainStation, array $data)
+    public function getTrainStationFromId($id)
     {
-        $trainStation->update($data);
+        return TrainStation::findOrFail($id);
+    }
+   public function update($data, TrainStation $trainStation)
+    {
+        $trainStation->update(
+           $data
+        );
         return $trainStation;
     }
-
     public function delete(TrainStation $trainStation)
     {
         return $trainStation->delete();
     }
+
 }
