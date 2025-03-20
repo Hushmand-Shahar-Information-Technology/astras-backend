@@ -39,7 +39,7 @@ class TrainStationController extends Controller
     {
         
         $trainStation = $this->trainStationService->getTrainStationFromId($id);
-        dd($trainStation);
+        
         $trainStation = $this->trainStationService->update($request->validated(), $trainStation);
         return response()->json($trainStation);
     }
