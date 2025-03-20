@@ -35,12 +35,9 @@ class TrainStationController extends Controller
         return response()->json($trainStation);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, TrainStation $trainStation)
     {
-        
-        $trainStation = $this->trainStationService->getTrainStationFromId($id);
-        
-        $trainStation = $this->trainStationService->update($request->validated(), $trainStation);
+        $trainStation = $this->trainStationService->update($request->all(), $trainStation);
         return response()->json($trainStation);
     }
     

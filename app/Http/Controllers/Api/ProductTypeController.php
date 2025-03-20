@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\services\ProductTypeService;
 use App\Http\Requests\ProductTypeRequest;
 use Illuminate\Http\Response;
+use App\Models\ProductType;
 class ProductTypeController extends Controller
 {
     protected $productTypeService;
@@ -36,6 +37,16 @@ class ProductTypeController extends Controller
         return response()->json($productType);
     }   
 
-   
+   public function update(ProductTypeRequest $request, ProductType $productType)
+   {
+    $productType = $this->productTypeService->update($request->validated(), $productType);
+    return response()->json($productType);
+   }
+   public function destroy($id)
+   {
+    $productType = $this->productTypeService->getProductTypeFromId($id);
+    $productType->delete();
+    return response()->json(['message' => 'Product type deleted successfully'], Response::HTTP_NO_CONTENT);
+   }
 
 }

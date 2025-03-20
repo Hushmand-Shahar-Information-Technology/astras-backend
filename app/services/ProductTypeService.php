@@ -18,4 +18,11 @@ class ProductTypeService
    public function getProductTypeFromId($id){
     return ProductType::findOrFail($id);
    }
+
+   public function update($data, ProductType $productType){
+    $productType->update([
+        'name' => $data['name'],
+    ]);
+    return $productType;
+   }
 }

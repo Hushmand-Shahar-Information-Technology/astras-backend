@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\CountryService;
+use App\Http\Requests\CountryRequest;
+use App\Models\Country;
 class CountryController extends Controller
 {
     protected $countryService;
@@ -17,19 +19,19 @@ class CountryController extends Controller
     {
         return response()->json($this->countryService->getAll());
     }
-    public function store(Request $request)
+    public function store(CountryRequest $request)
     {
-        return response()->json($this->countryService->create($request->all()));
+        return response()->json($this->countryService->create($request->validated()));
     }
     public function show($id)
     {
         return response()->json($this->countryService->getCountryFromId($id));
     }
     
-    public function update(Request $request, $id)
+    public function update(CountryRequest $request, Country $country)
     {
        
-        $country = $this->countryService->update($request->validated(), $id);
+        $country = $this->countryService->update($request->validated(), $country);
         return response()->json($country);
     }
     public function destroy($id)

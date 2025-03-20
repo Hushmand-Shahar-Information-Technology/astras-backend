@@ -22,12 +22,12 @@ class TrainStationRequest extends FormRequest
             'product_id' => 'nullable|exists:products,id',
             'country_from_id' => 'nullable|exists:countries,id',
             'country_to_id' => 'nullable|exists:countries,id',
-            'number_of_wagon' => 'required|integer|min:1',
-            'weight' => 'required|numeric|min:0',
-            'weight_type' => 'required',
-            'number_of_bar' => 'required|integer|min:0',
-            'date_of_out' => 'required|date',
-            'date_of_in' => 'required|date|after_or_equal:date_of_out',
+            'number_of_wagon' => 'nullable|integer|min:1',
+            'weight' => 'nullable|numeric|min:0',
+            'weight_type' => 'nullable',
+            'number_of_bar' => 'nullable|integer|min:0',
+            'date_of_out' => 'nullable|date',
+            'date_of_in' => 'nullable|date|after_or_equal:date_of_out',
         ];
     }
 }
