@@ -18,6 +18,8 @@ class TrainStation extends Model
         'company_id',
         'product_id',
         'product_type_id',
+        'type',
+        'product_type',
         'transport_type_id',
         'user_id',
         'country_from_id',
@@ -27,6 +29,7 @@ class TrainStation extends Model
         'number_of_bar',
         'date_of_out',
         'date_of_in',
+
     ];
 
     public function company()
