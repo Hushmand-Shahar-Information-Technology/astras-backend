@@ -12,7 +12,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('train_stations', function (Blueprint $table) {
-            $table->enum('type', Type::values())->nullable();
+            // $table->enum('type', Type::values())->nullable();
             // $table->enum('product_type', ProductType::values())->nullable();
         });
     }
