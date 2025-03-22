@@ -5,8 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -23,7 +22,7 @@ return new class extends Migration
             $table->foreignId('country_to_id')->nullable()->constrained('countries')->nullOnDelete();
             $table->integer('number_of_wagon');
             $table->decimal('weight', 10, 2);
-            $table->enum('weight_type', WeightType::values())->default(WeightType::KG->value);
+            // $table->enum('weight_type', App\WeightType::values())->default('kg');
             $table->integer('number_of_bar');
             $table->date('date_of_out');
             $table->date('date_of_in');
