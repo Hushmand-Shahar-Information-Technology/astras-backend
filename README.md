@@ -1,5 +1,3 @@
-Here is an updated README for the project, including a section for Filament PHP:
-
 ```markdown
 # Astras Backend
 
