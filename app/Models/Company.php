@@ -10,6 +10,13 @@ class Company extends Model
 
     protected $fillable = [
         'name',
+        'phone',
+        'owner_name',
+        'father_name',
+        'partner_phone',
+        'maktoob_date',
+        'expire_date',
+        'license_number',
     ];
 
     public function trainStations()
