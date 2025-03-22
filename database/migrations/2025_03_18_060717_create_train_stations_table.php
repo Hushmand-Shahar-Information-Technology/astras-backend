@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->foreignId('country_to_id')->nullable()->constrained('countries')->nullOnDelete();
             $table->integer('number_of_wagon');
             $table->decimal('weight', 10, 2);
-            $table->enum('weight_type', App\WeightType::values())->default('kg');
+            // $table->enum('weight_type', App\WeightType::values())->default('kg');
             $table->integer('number_of_bar');
             $table->date('date_of_out');
             $table->date('date_of_in');
