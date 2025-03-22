@@ -49,4 +49,10 @@ class User extends Authenticatable implements FilamentUser
             'password' => 'hashed',
         ];
     }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        // Implement your logic to determine if the user can access the panel
+        return true; // Example: allow all users to access the panel
+    }
 }
