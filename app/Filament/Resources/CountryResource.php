@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProductResource\Pages;
-use App\Filament\Resources\ProductResource\RelationManagers;
-use App\Models\Product;
+use App\Filament\Resources\CountryResource\Pages;
+use App\Filament\Resources\CountryResource\RelationManagers;
+use App\Models\Country;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,13 +13,13 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ProductResource extends Resource
+class CountryResource extends Resource
 {
-    protected static ?string $model = Product::class;
+    protected static ?string $model = Country::class;
     protected static ?string $navigationGroup = 'منابع اصلی';
 
-    protected static ?string $modelLabel = 'محصولات';
-    protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
+    protected static ?string $modelLabel = 'کشورها';
+    protected static ?string $navigationIcon = 'heroicon-o-flag';
 
     public static function form(Form $form): Form
     {
@@ -64,7 +64,7 @@ class ProductResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageProducts::route('/'),
+            'index' => Pages\ManageCountries::route('/'),
         ];
     }
 }

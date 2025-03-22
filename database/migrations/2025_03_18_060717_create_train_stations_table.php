@@ -1,9 +1,11 @@
 <?php
 
 use App\WeightType;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Enum\TrainStation\Type;
+use App\enum\TrainStation\ProductType;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration {
     /**
@@ -13,8 +15,8 @@ return new class extends Migration {
     {
         Schema::create('train_stations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('transport_type_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('product_type_id')->nullable()->constrained()->nullOnDelete();
+            $table->enum('type', Type::values())->nullable();
+            $table->enum('product_type', ProductType::values())->nullable();
             $table->foreignId('company_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('product_id')->nullable()->constrained()->nullOnDelete();
