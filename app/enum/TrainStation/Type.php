@@ -1,12 +1,13 @@
 <?php
 
-namespace App\enum\TrainStation;
+namespace App\Enum\TrainStation;
 
 use App\Traits\UseValues;
 
-enum Type : string
+enum Type: string
 {
     use UseValues;
+
     case IMPORT = "واردات";
-    case EXPORT = "صادرات"; 
+    case EXPORT = "صادرات";
 }
