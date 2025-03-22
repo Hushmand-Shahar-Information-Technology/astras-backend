@@ -4,9 +4,10 @@ namespace App\Enum\TrainStation;
 
 use App\Traits\UseValues;
 
-class Type
+enum Type: string
 {
     use UseValues;
 
-    // ...existing code...
+    case IMPORT = "واردات";
+    case EXPORT = "صادرات";
 }
